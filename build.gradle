@@ -17,10 +17,10 @@ publishing {
     repositories {
         maven {
             name='github'
-            url=''
+            url='https://maven.pkg.github.com/Seamus-Grady/avl-tree-project'
             credentials {
                 username='Seamus-Grady'
-                password= System.getenv('GITHUB_PUBLISHING_TOKEN')
+                password= System.getenv('GITHUB_TOKEN')
             }
         }
     }
@@ -33,9 +33,18 @@ publishing {
 
 repositories {
     mavenCentral()
+    maven {
+        name= 'githubPackage'
+        url= 'https://maven.pkg.github.com/Seamus-Grady/BSTProject'
+        credentials {
+            username='Seamus-Grady'
+            password= System.getenv('GITHUB_TOKEN')
+        }
+    }
 }
 
 dependencies {
+    implementation 'com.BSTProject:bst:1.0.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     testImplementation 'org.junit.platform:junit-platform-launcher:1.8.2'
